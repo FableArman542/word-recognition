@@ -30,10 +30,9 @@ sinal_test = sinal_test / max_test
 
 lsfs_train, energies_train, potency_train = run_whole_signal(sinal_train, ws, wa, pf, k1, k2, p, to_plot=False)
 lsfs_test, energies_test, potency_test = run_whole_signal(sinal_test, ws, wa, pf, k1, k2, p, to_plot=False)
-
 print("lsfs_train: ", lsfs_train.shape)
 print("lsfs_test: ", lsfs_test.shape)
-distances_matrix = dtw(lsfs_train, lsfs_test, p, to_plot=False)
+distances_matrix = dtw(lsfs_train, lsfs_test, p, to_plot=True)
 
 min_matrix = get_new_matrix(distances_matrix, to_plot=True)
 

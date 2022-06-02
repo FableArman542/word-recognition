@@ -8,6 +8,7 @@ def load_classes_from_folder(folder, extension='A.wav'):
     class1 = []; class2 = []; class3 = []
     class4 = []; class5 = []; class6 = []
     class7 = []; class8 = []; class9 = []
+    classO = []; classZ = []
     for filename in os.listdir(folder):
         if filename.endswith(extension):
             rate, sinal = read(os.path.join(folder, filename))
@@ -31,8 +32,28 @@ def load_classes_from_folder(folder, extension='A.wav'):
                 class8.append((sinal, rate, maximum))
             elif search('9', filename):
                 class9.append((sinal, rate, maximum))
+            elif search('O', filename):
+                classO.append((sinal, rate, maximum))
+            elif search('Z', filename):
+                classZ.append((sinal, rate, maximum))
 
-    return np.array(class1), np.array(class2), np.array(class3), np.array(class4), np.array(class5), np.array(class6), np.array(class7), np.array(class8), np.array(class9)
+    return np.array(class1), np.array(class2),\
+           np.array(class3), np.array(class4), \
+           np.array(class5), np.array(class6), \
+           np.array(class7), np.array(class8), \
+           np.array(class9), np.array(classO), np.array(classZ)
+
+def load_class_from_wav(folder, class_to_load, extension='.wav'):
+    class_loaded = []
+    for filename in os.listdir(folder):
+        if filename.endswith(extension):
+            rate, sinal = read(os.path.join(folder, filename))
+            maximum = abs(max(sinal))
+            sinal = sinal / maximum
+            if search(class_to_load, filename):
+                class_loaded.append((sinal, rate, maximum))
+
+    return np.array(class_loaded)
 
 def load_wav(filename):
     rate, sinal = read(filename)

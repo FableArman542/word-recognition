@@ -71,7 +71,9 @@ def get_edges(potency, k1, k2, debug=False):
         elif begin is not None and state == EdgeState.K1 and potency[i] <= k1:
             if debug: print("[FIM] Encontrou k1 = Fim")
             end = i
-
+    # print(begin, end)
+    # print(potency[begin-1])
+    # print(potency[end])
     return begin, end
 
 
@@ -92,6 +94,7 @@ def run_whole_signal(_signal, ws, wa, pf, k1, k2, p, to_plot=False):
         lsfs[i] = lsf
 
     potency = energies / ws  # Passar para potencia
+
 
     begin, end = get_edges(potency, k1, k2)  # Remover silencio
 

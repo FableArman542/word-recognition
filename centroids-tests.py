@@ -28,7 +28,7 @@ test_folder = "./corpus_digitos/test-examples/" + gender
 trains = load_classes_from_folder(train_folder, ".wav"); trains = np.array(trains)
 
 centroids = get_centroids(trains, ws, wa, pf, k1, k2, p)
-
+# print(centroids)
 # Write the centroids to a pickle file
 with open('centroids/centroids.pickle', 'wb') as handle:
     pickle.dump(centroids, handle, protocol=pickle.HIGHEST_PROTOCOL)
