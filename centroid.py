@@ -13,7 +13,7 @@ def get_centroids(trains, ws, wa, pf, k1, k2, p):
 
     class_number = 0
     for train_class in trains:
-
+        # print("Class", class_number)
         signals = []
         distances_per_class = []
         # Each class has a list of signals
@@ -34,6 +34,7 @@ def get_centroids(trains, ws, wa, pf, k1, k2, p):
                     distance, new_matrix = get_global_distance(min_matrix, to_plot=False)
                     # if not math.isinf(distance):
                     distances = np.append(distances, distance)
+            # print("Distances", distances)
             # signals.append(instance)
             signals.append(lsfs_train)
             # print(lsfs_train.shape)

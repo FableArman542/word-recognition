@@ -44,7 +44,6 @@ def get_energy(s, pf):
             e += s[n] * s[n]
     return e
 
-
 def get_edges(potency, k1, k2, debug=False):
     state = EdgeState.K1
     begin = None

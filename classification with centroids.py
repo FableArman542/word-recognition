@@ -1,6 +1,7 @@
 import pickle
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 from utils import load_classes_from_folder
 from process_signal import autocorrelation, calculate_lsp, get_energy, \
@@ -39,6 +40,7 @@ for test_class in tests:
         # Go through each centroid and calculate the distance
         distances = []
         for key in centroids:
+            if key == 10: continue
 
             # Get the lsf of the centroid
             lsf_centroid = centroids[key]
@@ -61,3 +63,16 @@ print(confusion_matrix)
 # Get accuracy from confusion matrix
 accuracy = np.trace(confusion_matrix)/np.sum(confusion_matrix)
 print("Accuracy:", accuracy)
+
+ax = sns.heatmap(confusion_matrix, annot=True, cmap='Blues')
+
+ax.set_title('Confusion Matrix\n\n')
+ax.set_xlabel('Predicted')
+ax.set_ylabel('Actual')
+
+## Ticket labels - List must be in alphabetical order
+ax.xaxis.set_ticklabels(['1','2', '3', '4', '5', '6', '7', '8', '9', '0', 'Z'])
+ax.yaxis.set_ticklabels(['1','2', '3', '4', '5', '6', '7', '8', '9', '0', 'Z'])
+
+## Display the visualization of the Confusion Matrix.
+plt.show()

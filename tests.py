@@ -19,8 +19,11 @@ k1 = .0001
 k2 = .0003
 
 gender = "female"
+gender_test = "male"
 train_folder = "./corpus_digitos/training-examples/" + gender
-test_folder = "./corpus_digitos/test-examples/" + gender
+test_folder = "./corpus_digitos/test-examples/" + gender_test
+
+print("Train", gender, "Test", gender_test)
 
 classes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
