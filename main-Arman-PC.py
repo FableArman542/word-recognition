@@ -28,7 +28,7 @@ max_train = abs(max(sinal_train)); sinal_train = sinal_train / max_train
 rate_test, sinal_test = read("./corpus_digitos/" + sinal_teste); max_test = abs(max(sinal_test))
 sinal_test = sinal_test / max_test
 
-lsfs_train, energies_train, potency_train = run_whole_signal(sinal_train, ws, wa, pf, k1, k2, p, to_plot=False)
+lsfs_train, energies_train, potency_train = run_whole_signal(sinal_train, ws, wa, pf, k1, k2, p, to_plot=True)
 lsfs_test, energies_test, potency_test = run_whole_signal(sinal_test, ws, wa, pf, k1, k2, p, to_plot=False)
 print("lsfs_train: ", lsfs_train.shape)
 print("lsfs_test: ", lsfs_test.shape)

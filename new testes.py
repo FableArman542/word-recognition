@@ -23,7 +23,7 @@ k2 = .0003
 sinal_treino = "training-examples/FAC_1A.wav"
 sinal_teste = "FDC_1A.wav"
 
-gender = "male"
+gender = "female"
 train_folder = "./corpus_digitos/training-examples/" + gender
 test_folder = "./corpus_digitos/test-examples/" + gender
 
@@ -33,7 +33,7 @@ tests = load_classes_from_folder(test_folder); tests = np.array(tests)
 
 # test_signal, _, _ = load_wav(test_folder + sinal_teste)
 
-classes = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+classes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 confusion_matrix = np.zeros((len(classes), len(classes)))
 test_c = 0
 for test_class in tests:
@@ -95,29 +95,3 @@ ax.yaxis.set_ticklabels(['1','2', '3', '4', '5', '6', '7', '8', '9', '0', 'Z'])
 
 ## Display the visualization of the Confusion Matrix.
 plt.show()
-
-# lsfs_train, energies_train, potency_train = run_whole_signal(train_results[0], ws, wa, pf, k1, k2, p, to_plot=False)
-# lsfs_test, energies_test, potency_test = run_whole_signal(test_signal, ws, wa, pf, k1, k2, p, to_plot=False)
-# dtw_matrix = dtw(lsfs_train, lsfs_test, p, to_plot=False)
-# min_matrix = get_new_matrix(dtw_matrix, to_plot=True)
-# global_distance, new_matrix = get_global_distance(min_matrix, to_plot=True)
-
-
-
-# rate_train, sinal_train = read("./corpus_digitos/" + sinal_treino)
-# max_train = abs(max(sinal_train)); sinal_train = sinal_train / max_train
-#
-# rate_test, sinal_test = read("./corpus_digitos/" + sinal_teste); max_test = abs(max(sinal_test))
-# sinal_test = sinal_test / max_test
-#
-# lsfs_train, energies_train, potency_train = run_whole_signal(sinal_train, ws, wa, pf, k1, k2, p, to_plot=False)
-# lsfs_test, energies_test, potency_test = run_whole_signal(sinal_test, ws, wa, pf, k1, k2, p, to_plot=False)
-#
-# print("lsfs_train: ", lsfs_train.shape)
-# print("lsfs_test: ", lsfs_test.shape)
-# distances_matrix = dtw(lsfs_train, lsfs_test, p, to_plot=False)
-#
-# min_matrix = get_new_matrix(distances_matrix, to_plot=False)
-#
-# global_distance, path = get_global_distance(min_matrix, to_plot=True)
-# print(global_distance)

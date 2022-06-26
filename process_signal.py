@@ -91,7 +91,6 @@ def run_whole_signal(_signal, ws, wa, pf, k1, k2, p, to_plot=False):
 
         lsf = calculate_lsp(r, p)
         lsfs[i] = lsf
-
     potency = energies / ws  # Passar para potencia
 
 
@@ -103,6 +102,10 @@ def run_whole_signal(_signal, ws, wa, pf, k1, k2, p, to_plot=False):
     if to_plot:
         plt.title("Signal")
         plt.plot(_signal)
+        plt.show()
+
+        plt.title("Potency")
+        plt.plot(potency)
         plt.show()
 
         plt.title("Cut Potency")
